@@ -1,28 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centered Logo</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh; /* full screen height */
-      display: flex;
-      justify-content: center; /* center horizontally */
-      align-items: center;     /* center vertically */
-      background-color: #f5f5f5; /* optional: clean background */
-    }
+   
+    <title>JavaScript Example</title>
 
-    .logo {
-      max-width: 80%; /* makes it responsive */
-      height: auto;   /* keeps correct proportions */
-      border-radius: 16px; /* optional: soft rounded edges */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow for style */
-    }
-  </style>
+    <span>
+        <button id="lightMode">Light Mode</button>
+        <button id="darkMode">Dark Mode</button>
+        <button id="discoMode">Start Disco</button>
+    </span>
+    <style>
+        body {
+            /* transition lets us change HOW something changes (e.g., ease will change it gently rather
+            straight away*/
+            transition: background-color 5s ease, color 5s ease;
+        }
+    </style>
 </head>
 <body>
-  <img src="images/Cabsa logo.png" width = "500" height = "500">
+
+    <!--This allows us to set speed by specifying the number of pixels the content moves at each interval-->
+    <marquee scrollamount = "5">    <!--seconds of the speed-->
+        <h1>This is showing some basic javascript things we can do!</h1>
+    </marquee> 
+    
+    <!--we give things an ID so that we can access them from our script-->
+    <p id = "randomText">
+        This is just a silly paragraph to show
+
+    </p>
+
+    <!--Command set for the button to change to the desired language-->
+    <button id = "translationButton">Click me to turn this text into Hieroglyphics</button>
+
+    <!--we call the script at the end of the body, so that everything else on the website is created first
+    this is so that the code in the javascript doesn't try and touch something before it exists-->
+    <script src = "Javascript/script.js"></script> 
 </body>
+<footer>
+
+</footer>
 </html>
