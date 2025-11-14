@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <!--Title of the website-->
+    <title>Contact Us</title>
+    <!--link to the external style sheet-->
+    <link rel="stylesheet" href="style.css">
+
+    <style type="text/css">     /*(The IIE, 2025)*/
+    table, th, td{
+      border: 1px solid black;
+      border-collapse: collapse;
+     }
+    </style>
+    <style>
+        body {  /*(W3schools, 2025).*/
+            font-family: Arial, Helvetica, sans-serif;
+            background-color:beige;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        img {           /*(W3schools, 2025).*/
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+     }  
+        
+        .contact-container {        /*(W3schools, 2025).*/
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        .header {   /*(W3schools, 2025).*/
+            text-align:center;
+            margin-bottom: 40px auto;
+        }
+        .header h1 {    /*(W3schools, 2025).*/
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .header p { /*(W3schools, 2025).*/
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+        .cards {        /*(W3schools, 2025).*/
+            display:flex;
+            gap: 25px;
+            flex-wrap:wrap;
+            justify-content: center;
+        }
+        .card {     /*(W3schools, 2025).*/
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            flex: 1;
+            min-width: 250px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {   /*(The IIE, 2025).*/
+            transform: translateY(-5px);
+        }
+        .card h2 {      /*(W3schools, 2025).*/
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .contact-info a {   /*(W3schools, 2025).*/
+            color: #2c3e50;
+            text-decoration: none;
+            display: block;
+            margin: 15px 0;
+        }
+        .contact-info a:hover {     /*(W3schools, 2025).*/
+            color: #3498db;
+        }
+        .hours-table td {       /*(W3schools, 2025).*/
+            padding: 10px 5px;
+        }
+        .hours-table td:last-child {      /*(W3schools, 2025).*/
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .note {     /*(W3schools, 2025).*/
+            font-style: italic;
+            color: #95a5a6;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        .centered-form {    /*(W3schools, 2025).*/ /*(The IIE, 2025).*/
+            width: 300px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</header>
+<body>
+
+    <h3 style="text-align: center;"> 
+        <a href="home.html" style="margin: 0 15px;">Home</a>
+        <a href="about.html" style="margin: 0 15px;">About</a>
+        <a href="services.html" style="margin: 0 15px;">Services</a> 
+        <a href="enquiry.html" style="margin: 0 15px;">Enquiry</a>
+        <a href="contact.html" style="margin: 0 15px;">Contact</a>
+      </h3> <br>
+
+    <div class="contact-container">
+        <div class="header"></div>
+    <h1 style="text-align: center;">Get in Touch</h1>
+    <p style="text-align: center;">If you have any questions, feel free to ask!</p>
+    </div>
+
+    <div class="cards">
+        <!--Contact details card-->
+        <div class="card contact-info">
+
+            <h2>Contact Details</h2>
+            <p><strong>Email:</strong> <br>
+                <a href="mailto:admin@cabsa.org.za">admin@cabsa.org.za </a>
+            </p>
+            <p><strong>Telephone:</strong> <br>
+                <a href="+27 21 864 8294 ">+27 21 864 8294</a>
+            </p>
+    </div>
+
+    <!--Operating Hours Card-->
+    <div class="card">
+        <h2>Operating Hours</h2>
+
+        <table class="hours-table">
+            <tr>
+                <th>Weekday</th>
+                <th>Weekend</th>
+                <th>Public holiday</th>
+            <br>
+            </tr>
+            <tr>
+                <td>07:00-16:00</td>
+                <td>08:00-13:00</td>
+                <td>Not Available</td>
+            </tr>    
+        </table>
+
+        <p class="note">All times are in South Africa Standard Time (SAST)</p>
+        </div>
+    </div>
+    </div>
+    <br>
+
+<img src="images/Back picture.jpg" alt="citizens" style="width:50%;">
+
+
+<br>
+<h2 style="text-align: center;"><u>Fill In Your Information</u></h2> <br>
+<div>
+    <!--mailto allow us to email someone-->
+    <form class="centered-form">
+<form action = "mailto:admin@cabsa.org.za" method = "post" enctype="text/plain">
+    <!--label lets us tell the user what we want them to enter-->
+    <!--the for attribute tells the website which input to relate it to-->
+    <label for = "firstName">First Name: </label> <br>
+    <input type = "text" id = "firstName" name = "firstName"required> <br>
+    <!--name and id should match the label "for", and the type is what we want the user to enter-->
+
+    <label for = "lastName">Last Name: </label> <br>
+    <input type = "text" id = "lastName" name = "lastName" required> <br>
+    <input type = "submit" value = "Submit">
+</form>
+</div>
+
+<br>
+<br>
+<h1 style="text-align: center;">Find Us Here!</h1>
+
+<div style="text-align: center;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.7315519160475!2d19.00939217493552!3d-33.63820187331569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcd08b05ac36751%3A0xc88610a7a6955087!2s66%20Church%20St%2C%20Wellington%2C%207654%2C%20South%20Africa!5e0!3m2!1sen!2snl!4v1756326898303!5m2!1sen!2snl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</body>
+</html>
+
+<!-- •	CABSA (Christian AIDS Bureau for Southern Africa). 2025. About Us [online]. Available at:< https://cabsa.org.za/about-us/> [Accessed 14 August 2025].
+•	CABSA (Christian AIDS Bureau for Southern Africa). 2001. CABSA—established to empower faith communities responding to HIV [online]. Available at: 
+< https://cabsa.org.za/ >[Accessed 14 August 2025].
+•	Cabsa, 2025[electronic print]. Available at: < https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1VbvpXJxzoY17mGf84yDWjPCRJq87B3aWkQ&s> [Accessed 25 August 2025]
+•	Diaconia, 2025[electronic print]. Available at:< https://diaconia.co.za/wp-content/uploads/2018/05/cabsa.png> [Accessed 25 August 2025]
+•	W3Schools. (n.d.). CSS HEX Colors. Available at: W3Schools, <https://www.w3schools.com/css/css_colors_hex.asp > [Accessed 25 August 2025]
+•	Figma, 2025. Available at: < https://www.figma.com/ > [Accessed 26 August 2025]
+•	Saffronedge, 2025. What are website metrics. [online] Available at: https://www.bing.com/ck/a?!&&p=f20ee0b2ea3f1777d4487ababfbd2a112bb93f12b6e2cb8e8c6cc8614a925910JmltdHM9MTc1NjI1MjgwMA&ptn=3&ver=2&hsh=4&fclid=0ed0197c-2075-6fab-1709-0f2921eb6eb4&u=a1aHR0cHM6Ly93d3cuc2FmZnJvbmVkZ2UuY29tL2Jsb2cvd2Vic2l0ZS1tZXRyaWNzLWtwaXMv&ntb=1 > [Accessed 27 August 2025]
+•	Wrike, 2025. What are Technical Requirements in Project Management?. Available at: < https://www.wrike.com/project-management-guide/faq/what-are-technical-requirements-in-project-management/ > [Accessed 27 August 2025]
+ -->
