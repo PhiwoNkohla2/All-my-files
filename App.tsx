@@ -1,70 +1,79 @@
-// ...existing code...
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, Button, View, FlatList } from 'react-native';
-import { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, Button, FlatList, ListRenderItem } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {useState} from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-// ...existing code...
-type StoreItem = {
-  id: string; // id helps differentiate
-  name: string;
-  price: string;
-}
+const Stack = createNativeStackNavigator();
 
-export default function App() {
-  const [itemName, setItemName] = useState<string>('');
-  const [itemPrice, setItemPrice] = useState<string>('');
-  const [catalogue, setCatalogue] = useState<StoreItem[]>([
-    { id: "1", name: "Bread", price: "R12" },
-    { id: "2", name: "Butter", price: "R18" }
-  ]);
+type Book = {
+  id: string,
+  title: string,
+  author: string
+};
 
-  const addNewItem = (name: string, price: string) => {
-    if (!name.trim() || !price.trim()) return;
-    const newItem: StoreItem = {
-      id: Date.now().toString(),
-      name,
-      price
-    };
-    setCatalogue(prev => [newItem, ...prev]);
-    setItemName('');
-    setItemPrice('');
-  }
-
-  const renderItem = ({ item }: { item: StoreItem }) => (
-    <View style={styles.item}>
-      <Text>{item.name} — {item.price}</Text>
-    </View>
-  );
-
+const FirstScreen = ({navigation}) => {
+  const [bookTitle, setBookTitle] = useState('');
+  const [bookAuthor, setBookAuthor] = useState('');
+  var [bookCatalogue, setBookCatalogue] = useState<Book[]> ([
+    {id: '1', title: 'MAST Module Manual 2025', author: 'IIE VC'},
+    {id: '2', title: 'Principles of Design', author: 'Jo Hart'}
+  ])
+  const addNewBook = (title: string, author: string) => {
+    const newBookId = (bookCatalogue.length + 1).toString();
+    const newBook : Book = {id: newBookId, title: title, author: author}
+    setBookCatalogue([...bookCatalogue, newBook]);
+  };
   return (
     <View style={styles.container}>
-      <Text>Welcome to Store!</Text>
-      <TextInput
-        placeholder='Please enter an item name'
-        value={itemName}
-        onChangeText={setItemName}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder='Please enter an item price'
-        value={itemPrice}
-        onChangeText={setItemPrice}
-        style={styles.input}
-      />
-      <Button
-        title='Add new item to catalogue'
-        onPress={() => addNewItem(itemName, itemPrice)}
-      />
-      <FlatList
-        data={catalogue}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
-        style={{ width: '100%', marginTop: 16 }}
-      />
+      <Text>This is home screen!</Text>
+      <TextInput placeholder='Please enter the book title' onChangeText={(newText) => setBookTitle(newText)}/>
+        <TextInput placeholder='Please enter the book author'  onChangeText={(newText) => setBookAuthor(newText)}/>
+          <Button title='Add Book' onPress={() => {
+            addNewBook(bookTitle, bookAuthor);
+            setTimeout(() => {
+              navigation.navigate('FirstScreen', {bookSend: bookCatalogue});
+            }, 2000);
+            navigation.navigate('SecondScreen', {bookSend: bookCatalogue});
+          }}/> 
       <StatusBar style="auto" />
     </View>
+  );
+}
+
+const SecondScreen = ({navigation, route}) => {
+  const bookGet = route.params.bookSend;
+  const renderItem: ListRenderItem<Book> = ({item}) => (
+    <View>
+      <Text>Book Title: {item.title}, Book Author: {item.author}</Text>
+    </View>
+  )
+  return (
+    <View style={styles.container}>
+      <Text>This is the second screen!</Text>
+      <Button title='Go Back to Home Screen' onPress={
+        navigation.navigate('FirstScreen')
+      }/>
+      <FlatList
+          data={bookGet}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          ItemSeparatorComponent={() =><View/> } 
+          />
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+
+export default function App() {
+  return (
+   <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="FirstScreen" component={FirstScreen}/>
+      <Stack.Screen name="SecondScreen" component={SecondScreen}/>
+    </Stack.Navigator>
+   </NavigationContainer>
   );
 }
 
@@ -73,25 +82,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingTop: 60,
-    paddingHorizontal: 16,
-  },
-  input: {
-    width: '100%',
-    borderColor: '#ccc',
-    borderWidth: 1,
-    padding: 8,
-    marginTop: 8,
-    borderRadius: 4,
-  },
-  itemSeparator: {
-    height: 1,
-    backgroundColor: '#eee',
-    marginVertical: 8,
-  },
-  item: {
-    paddingVertical: 8,
+    justifyContent: 'center',
   },
 });
-// ...existing

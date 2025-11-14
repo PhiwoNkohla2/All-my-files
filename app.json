@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "flatlist",
-    "slug": "flatlist",
+    "name": "Lists-and-Screens",
+    "slug": "Lists-and-Screens",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
