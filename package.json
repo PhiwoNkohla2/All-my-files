@@ -1,5 +1,5 @@
 {
-  "name": "switch",
+  "name": "test-vm",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
@@ -9,14 +9,15 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~54.0.2",
-    "expo-status-bar": "~3.0.8",
-    "react": "19.1.0",
-    "react-native": "0.81.4"
+    "expo": "~53.0.22",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.6"
   },
   "devDependencies": {
-    "@types/react": "~19.1.0",
-    "typescript": "~5.9.2"
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.0.10",
+    "typescript": "~5.8.3"
   },
   "private": true
 }
