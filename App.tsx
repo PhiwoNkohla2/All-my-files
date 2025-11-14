@@ -1,86 +1,82 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Button,  View } from 'react-native';
 import {useState} from 'react';
-import { TextInput } from 'react-native';
-import { FlatList } from 'react-native';
-
-// here we define what each StoreItem has (what attributes describe a shopping item)
-type StoreItem = {
-  id: string;
-  name: string;
-  price: string;
-  category: string;
-  description: string;
-};
+import { StyleSheet, Text, View, Button } from 'react-native';
+// to use this, we ran "npm install react-native-paper" without it, this won't work
+import { RadioButton} from 'react-native-paper'; 
 
 export default function App() {
-  const [itemName, setItemName] = useState("");
-  const [itemPrice, setItemPrice] = useState("");
-  const [itemCategory, setItemCategory] = useState("");
-  const [itemDescription, setItemDescription] = useState("");  
-  const [productCatalogue, setProductCatalogue] = useState<StoreItem[]>([]);
-
-  const addNewItem = () => {
-    // check if all fields have information, otherwise we exit to not add blank info to the list
-    if (!itemName || !itemPrice || !itemCategory || !itemDescription) return;
-    
-    const newItem: StoreItem = {
-      id: (productCatalogue.length + 1).toString(), // simple id generation based on length
-      name: itemName,
-      price: itemPrice,
-      category: itemCategory,
-      description: itemDescription,
-    };
-
-    setProductCatalogue((prevList) => [newItem, ...prevList]);
-
-    // clear input fields after adding and let the user add a new item
-    setItemName("");
-    setItemPrice("");
-    setItemCategory("");
-    setItemDescription("");
-  };
-
+  // creating a variable to store which of the radio buttons is currently selected (by default, 0, meaning none)
+  const [selectedValue, setSelectedValue] = useState('0');
   return (
     <View style={styles.container}>
-      <Text>Flatlist Recap!</Text>
-      <TextInput
-        placeholder="Item Name"
-        value={itemName}
-        onChangeText={setItemName}
-        />
-      <TextInput
-        placeholder='Item Price'
-        value={itemPrice}
-        onChangeText={setItemPrice}
-      />
-      <TextInput
-        placeholder='Item Category'
-        value={itemCategory}
-        onChangeText={setItemCategory}
-      />
-      <TextInput
-        placeholder='Item Description'
-        value={itemDescription}
-        onChangeText={setItemDescription}
-      />
-      <Button title="Add New Item" 
-      onPress={addNewItem} />
-      <FlatList
-      data={productCatalogue}
-      keyExtractor={(item) => item.id}
-      renderItem={({item}) => (
-        <View style={styles.displayItem}>
-          <Text style={styles.displayText}>
-            {item.name} - {item.price}</Text>
-          <Text style={styles.displayText}>{item.category} - {item.description}</Text>
-        </View>
-      )}
-      style={styles.itemList}
-      />
-      <Text>Total Item Count: {productCatalogue.length}</Text>
+      <Text>Open up App.tsx to start working on your app!</Text>
       <StatusBar style="auto" />
-    </View>
+      {/* this view sets up our radio container, it will hold all our radio objects */}
+    <View style={styles.radioContainer}>
+      <View style={styles.radioGroup}>
+        <View style={styles.radioButton}>
+          <RadioButton.Android
+          value="1"
+          // here we set whether the button shows the dot or not (whether its checked or not)
+          // we use a 1 line if statement (first we specify what to check, followed by a ?)
+          // then what to do if its true (set as checked),a :, then what to do if false (unchecked)
+          status={selectedValue == '1' ? 'checked': 'unchecked'}
+           // what to do when the radio button is pressed (updated the variable)
+          onPress={() => setSelectedValue('1')} 
+          // finally we set a colour
+          color="#007bff"
+          />
+            {/* every button needs a corresponding label */}
+            <Text style={styles.radioLabel}>Breakfast</Text>
+        </View>
+        <View style={styles.radioButton}>
+          <RadioButton.Android
+          value="2"
+          // here we set whether the button shows the dot or not (whether its checked or not)
+          // we use a 1 line if statement (first we specify what to check, followed by a ?)
+          // then what to do if its true (set as checked),a :, then what to do if false (unchecked)
+          status={selectedValue == '2' ? 'checked': 'unchecked'}
+          // what to do when the radio button is pressed (updated the variable)
+          onPress={() => setSelectedValue('2')} 
+          // finally we set a colour
+          color="#007bff"
+          />
+            {/* every button needs a corresponding label */}
+            <Text style={styles.radioLabel}>Lunch</Text>
+        </View>
+
+         <View style={styles.radioButton}>
+          <RadioButton.Android
+          value="3"
+          // here we set whether the button shows the dot or not (whether its checked or not)
+          // we use a 1 line if statement (first we specify what to check, followed by a ?)
+          // then what to do if its true (set as checked),a :, then what to do if false (unchecked)
+          status={selectedValue == '3' ? 'checked': 'unchecked'}
+           // what to do when the radio button is pressed (updated the variable)
+          onPress={() => setSelectedValue('3')} 
+          // finally we set a colour
+          color="#007bff"
+          />
+            {/* every button needs a corresponding label */}
+            <Text style={styles.radioLabel}>Dinner</Text>
+        </View> {/* end of button */}
+      </View>  {/* end of radioContainer */}
+    </View>  {/* end of buton */}
+    <Button title="Click me for a Recommendation!"
+    onPress={() => { switch(selectedValue) {
+      case '0':
+        console.log('You did not select a button!')
+        break;
+        case '1':
+        console.log('You should have a Monster(tm) energy drink for breakfast!')
+        break;
+        case '2':
+          console.log('You should have an idiot sandwitch (and a Monster) for lunch!')
+          break;
+          case '3':
+            console.log('You should have a braai (and hot chocolate) for dinner!')
+    }}}/>
+     </View>  // end of screen
   );
 }
 
@@ -91,16 +87,56 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  displayItem: {
-    padding: 10,
-    backgroundColor: '#f9c2ff',
-    borderRadius: 5,
-    marginBottom: 10,
+  // this is the box that will contain our group of radio buttons
+  radioContainer: {
+    // we make it flexible (will fit any phone screen)
+    //flex: 0,
+    // seat a background colour for the box
+    //backgroundColor: '#f5f5f5',
+    // put the items in the center (as compared to left or right)
+    //justifyContent: 'center',
+    // put the items in the center (as compared to top or bottom)
+    alignItems: 'center'
   },
-  displayText: {
+  // we set what our group of radio buttons will look like
+  radioGroup: {
+    // put them next to each other, rather than on top of each other
+    flexDirection: 'row',
+    alignItems: 'center',
+    // leave space around the object for other objects
+    justifyContent: 'space-around',
+    // add some space above
+    marginTop: 20,
+    // add an invisible border (for spacing)
+    borderRadius: 8,
+    // set a background colour
+    backgroundColor: 'white',
+    // add space all around (so its not touching the edge of the container)
+    padding: 16,
+    // more fine adjustments to the placement of the group of buttons inside the container
+    // elevation makes it feel like its coming towards you slightly, a sense of "depth" almost
+    elevation: 4,
+    // setting up a very subtle shadow effect on the group of buttons
+    shadowColor: '#000',
+    // placing the shadow above/below the object
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    // give the shadow some transparency (so its not just a solid colour)
+    shadowOpacity: 0.25,
+    // curve the edges
+    shadowRadius: 4
+  },
+  radioButton: {
+    // side byside
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  radioLabel: {
+    // add some space to the left of the label (between the button and label)
+    marginLeft: 8,
     fontSize: 16,
-  },
-  itemList: {
-    marginTop: 10,
-  },
+    color: '#333' // gray-ish
+  }
 });

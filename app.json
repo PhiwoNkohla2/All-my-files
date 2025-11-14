@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "poeRecap",
-    "slug": "poeRecap",
+    "name": "radiobuttons",
+    "slug": "radiobuttons",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
