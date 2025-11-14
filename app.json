@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Splitting-Screens",
-    "slug": "Splitting-Screens",
+    "name": "switch",
+    "slug": "switch",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
