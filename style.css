@@ -1,0 +1,87 @@
+@media screen and (min-width: 770px) {
+    body {
+        background-color: lightblue;
+    }
+    h1 {
+        color: darkorchid;
+        border: solid 5px pink;
+        border-radius: 15px;
+    }
+    h2{
+        color: purple;
+        border-bottom: dotted 7px black;
+    }
+    p {
+        color:aquamarine;
+    }
+    .content-box {
+        width: 100%;
+        height: 50%;
+        border: dashed 3px navy;
+        background: beige;
+
+        #idMain-header {
+            font-weight: bold;
+            color: brown;
+            font-size: larger;
+            text-align: center;
+        }
+        .activate{
+            margin: 100px;
+        }
+
+        a {
+            color:burlywood
+        }
+        a:visited{
+            color:darkgoldenrod;
+        }
+         div:hover {
+            background-color: lightgrey;
+    }
+}
+}
+
+@media screen {
+    body{
+        background-color: lightyellow;
+    }
+    h1 {
+        color: darkorchid;
+        border: solid 5px pink;
+        border-radius: 15px;
+    }
+    h2{
+        color: purple;
+        border-bottom: dotted 7px black;
+    }
+    p {
+        color:aquamarine;
+    }
+    .content-box {
+        width: 100%;
+        height: 50%;
+        border: dashed 3px navy;
+        background: beige;
+
+        #idMain-header {
+            font-weight: bold;
+            color: brown;
+            font-size: larger;
+            text-align: center;
+        }
+        .activate{
+            margin: 100px;
+        }
+
+        a {
+            color:burlywood
+        }
+        a:visited{
+            color:darkgoldenrod;
+        }
+         div:hover {
+            background-color: lightgrey;
+    }
+}
+}
