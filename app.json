@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "part-3",
-    "slug": "part-3",
+    "name": "poeRecap",
+    "slug": "poeRecap",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
