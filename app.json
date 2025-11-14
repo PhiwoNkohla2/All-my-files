@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "radiobuttons",
-    "slug": "radiobuttons",
+    "name": "Splitting-Screens",
+    "slug": "Splitting-Screens",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
