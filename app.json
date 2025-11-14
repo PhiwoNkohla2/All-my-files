@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Christoffel-Place",
-    "slug": "Christoffel-Place",
+    "name": "flatlist",
+    "slug": "flatlist",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
