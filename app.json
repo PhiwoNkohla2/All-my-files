@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "averageCalculation",
-    "slug": "averageCalculation",
+    "name": "bottomNav",
+    "slug": "bottomNav",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
