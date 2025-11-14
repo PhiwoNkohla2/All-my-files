@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-   
-    <title>JavaScript Example</title>
+   <!--SEO tags-->
+   <meta name = "description" content = "Simple search example for a website using Javascript">
+    <meta name = "keywords" content = "HTML, CSS, JavaScript">
+    <title>Search Example</title>
 
-    <span>
-        <button id="lightMode">Light Mode</button>
-        <button id="darkMode">Dark Mode</button>
-        <button id="discoMode">Start Disco</button>
-    </span>
-    <style>
-        body {
-            /* transition lets us change HOW something changes (e.g., ease will change it gently rather
-            straight away*/
-            transition: background-color 5s ease, color 5s ease;
-        }
-    </style>
+    <link href = "css/style.css" rel = "stylesheet" type = "text/css">
 </head>
 <body>
-
-    <!--This allows us to set speed by specifying the number of pixels the content moves at each interval-->
-    <marquee scrollamount = "5">    <!--seconds of the speed-->
-        <h1>This is showing some basic javascript things we can do!</h1>
-    </marquee> 
+    <h1>Search Fruits</h1> 
     
-    <!--we give things an ID so that we can access them from our script-->
-    <p id = "randomText">
-        This is just a silly paragraph to show
+    <input type = "text" id = "searchBox" placeholder = "Type to search...">
+    <button id = "searchButton">Search</button>
+    <button id = "clearSearch">Clear</button>
 
-    </p>
+    <ul id = "fruitList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+        <li>Cherry</li>
+        <li>Date</li>
+        <li>Elderberry</li>
+        <li>Fig</li>
+        <li>Grape</li>
+        <li>Honeydew</li>
+    </ul>
 
-    <!--Command set for the button to change to the desired language-->
-    <button id = "translationButton">Click me to turn this text into Hieroglyphics</button>
-
-    <!--we call the script at the end of the body, so that everything else on the website is created first
-    this is so that the code in the javascript doesn't try and touch something before it exists-->
-    <script src = "Javascript/script.js"></script> 
+    <script src = "js/search.js"></script>
 </body>
-<footer>
-
-</footer>
+<footer></footer>
 </html>
